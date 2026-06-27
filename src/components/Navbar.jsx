@@ -68,13 +68,9 @@ export default function Navbar() {
             <img
               src="/assets/logo/logo.png"
               alt="Envert"
-              className="h-9 w-auto"
+              className="h-12 w-auto"
               onError={(e) => { e.target.style.display = 'none'; }}
             />
-            <span className="text-xl font-bold">
-              <span className="gradient-text">En</span>
-              <span style={{ color: 'var(--color-text-primary)' }}>vert</span>
-            </span>
           </Link>
 
           {/* Desktop Nav */}

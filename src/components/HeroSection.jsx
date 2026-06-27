@@ -3,7 +3,15 @@ import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Shield, Leaf, ChevronDown } from 'lucide-react';
 
-const brands = ['Toyota', 'Tata', 'Mahindra', 'Ola Electric', 'Ather', 'Hero', 'Bajaj', 'Revolt'];
+const brands = [
+  'Sustainable Mobility',
+  'Zero Emission',
+  'Eco-Friendly Tech',
+  'Smart EV Infrastructure',
+  'Battery Innovation',
+  'Solar + EV Integration',
+  'Green Logistics'
+];
 
 export default function HeroSection() {
   const canvasRef = useRef(null);
@@ -83,20 +91,6 @@ export default function HeroSection() {
       {/* Main Content */}
       <div className="section-container flex-1 flex flex-col justify-center pt-28 pb-16 relative z-10">
         <div className="max-w-5xl">
-          {/* Badge */}
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-8"
-            style={{
-              background: 'rgba(34,197,94,0.1)',
-              border: '1px solid rgba(34,197,94,0.3)',
-              color: 'var(--color-primary)',
-              animation: 'slideUp 0.5s ease 0.1s both',
-            }}
-          >
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            India's Fastest Growing EV Company
-          </div>
-
           {/* Headline */}
           <h1
             className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-[1.08] tracking-tight mb-6"
@@ -143,9 +137,9 @@ export default function HeroSection() {
             style={{ animation: 'slideUp 0.6s ease 0.65s both' }}
           >
             {[
-              { icon: Zap, text: '12,400+ EVs Delivered' },
-              { icon: Shield, text: 'ISO 9001:2015 Certified' },
-              { icon: Leaf, text: '28,000 Tons CO₂ Saved' },
+              { icon: Zap, text: 'Next-Gen EV Solutions' },
+              { icon: Shield, text: 'Quality & Innovation' },
+              { icon: Leaf, text: 'Eco-Friendly Focus' },
             ].map(({ icon: Icon, text }) => (
               <div key={text} className="flex items-center gap-2">
                 <Icon size={16} style={{ color: 'var(--color-primary)' }} />

@@ -89,10 +89,6 @@ export default function Footer() {
                 className="h-8 w-auto"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
-              <span className="text-xl font-bold">
-                <span className="gradient-text">En</span>
-                <span style={{ color: '#f9fafb' }}>vert</span>
-              </span>
             </Link>
             <p className="text-sm leading-relaxed mb-6" style={{ color: '#6b7280' }}>
               India's premier EV trading and distribution company. Powering the electric future with sustainable mobility solutions for individuals, fleets, and cities.

@@ -16,6 +16,12 @@ import Manufacturing from './pages/Manufacturing';
 import Consultancy from './pages/Consultancy';
 import Contact from './pages/Contact';
 
+// Admin Pages
+import AdminLayout from './pages/admin/AdminLayout';
+import AdminLogin from './pages/admin/AdminLogin';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminProducts from './pages/admin/AdminProducts';
+
 // Scroll to top on every route change
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -45,6 +51,19 @@ function NotFound() {
 
 // Main layout wrapper (Navbar + content + Footer)
 function Layout({ children }) {
+  const { pathname } = useLocation();
+  const isAdmin = pathname.startsWith('/admin');
+
+  if (isAdmin) {
+    return (
+      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--color-bg)' }}>
+        <main style={{ flex: 1 }}>
+          {children}
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--color-bg)' }}>
       <Navbar />
@@ -74,6 +93,18 @@ export default function App() {
             <Route path="/manufacturing" element={<Manufacturing />} />
             <Route path="/consultancy" element={<Consultancy />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            
+            {/* Admin Protected Routes */}
+            <Route path="/admin" element={<AdminLayout />}>
+              <Route index element={<AdminDashboard />} />
+              <Route path="products" element={<AdminProducts />} />
+              {/* Placeholders for future pages */}
+              <Route path="services" element={<div className="p-8">Services Admin (WIP)</div>} />
+              <Route path="testimonials" element={<div className="p-8">Testimonials Admin (WIP)</div>} />
+              <Route path="stats" element={<div className="p-8">Stats Admin (WIP)</div>} />
+            </Route>
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

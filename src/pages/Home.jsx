@@ -2,7 +2,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Zap, Battery, Sun, Truck, Cpu, Wrench, Factory, BarChart3, Check } from 'lucide-react';
 import HeroSection from '../components/HeroSection';
-import StatsCounter from '../components/StatsCounter';
 import SectionTitle from '../components/SectionTitle';
 import ProductCard from '../components/ProductCard';
 import TestimonialCarousel from '../components/TestimonialCarousel';
@@ -69,7 +68,6 @@ export default function Home() {
     <>
       <title>Envert — India's Premier EV Company</title>
       <HeroSection />
-      <StatsCounter />
 
       {/* Solutions */}
       <section className="py-24" style={{ background: 'var(--color-bg)' }}>
