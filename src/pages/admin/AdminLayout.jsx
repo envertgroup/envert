@@ -38,11 +38,16 @@ export default function AdminLayout() {
       {/* Sidebar */}
       <aside className="w-64 flex-shrink-0 border-r" style={{ background: 'var(--color-bg)', borderRight: '1px solid var(--color-border)' }}>
         <div className="h-16 flex items-center px-6 border-b" style={{ borderBottom: '1px solid var(--color-border)' }}>
-          <Link to="/" className="text-xl font-black gradient-text tracking-wider">
-            ENVERT <span className="text-xs tracking-normal" style={{ color: 'var(--color-text-muted)' }}>ADMIN</span>
+          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
+            <img
+              src="/assets/logo/logo.png"
+              alt="Envert"
+              className="h-12 w-auto"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
           </Link>
         </div>
-        
+
         <div className="p-4 space-y-1">
           {sidebarLinks.map((link) => {
             const Icon = link.icon;
