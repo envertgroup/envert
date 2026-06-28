@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { products } from '../data/products';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function formatPrice(price) {
@@ -143,7 +144,11 @@ export default function ProductDetails() {
 
   return (
     <div style={{ background: 'var(--color-bg)', minHeight: '100vh', overflowX: 'hidden' }}>
-      <title>{product.name} — EnVERT</title>
+      <SEO 
+        title={`${product.name} | Specs, Price & Features — EnVERT`} 
+        description={`Get specifications, pricing, battery details, range, and top speed for the ${product.name} electric ${product.subcategory || 'vehicle'} by EnVERT.`}
+        keywords={`${product.name}, ${product.subcategory}, EV specifications, electric vehicle price, EnVERT`}
+      />
 
       {/* ── HERO SECTION ──────────────────────────────────────────────────── */}
       <section

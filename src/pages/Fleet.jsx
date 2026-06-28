@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const fleetSteps = [
   { num: '01', title: 'TCO Analysis', desc: 'We analyze your current fleet costs vs. EV transition ROI, payback period, and 10-year savings projection.' },
@@ -42,7 +43,11 @@ function FleetStepCard({ step, index }) {
 export default function Fleet() {
   return (
     <>
-      <title>Fleet Electrification — EnVERT</title>
+      <SEO 
+        title="Fleet Electrification — EnVERT" 
+        description="Transition your commercial fleet to electric with EnVERT. We offer end-to-end fleet electrification services including TCO analysis, vehicle selection, depot charging, and telematics software."
+        keywords="fleet electrification, commercial electric vehicles, EV fleet management, depot charging, EnVERT"
+      />
       <PageHero
         badge="Fleet Electrification"
         title="Electrify Your"

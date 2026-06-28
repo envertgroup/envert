@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const features = [
   { icon: MapPin, title: 'Real-Time GPS Tracking', desc: 'Live vehicle location, route history, geofencing, and trip replay on web and mobile.' },
@@ -46,7 +47,11 @@ function SoftwareFeatureCard({ feature, index }) {
 export default function Software() {
   return (
     <>
-      <title>Software & Technology — EnVERT</title>
+      <SEO 
+        title="Software & Technology — EnVERT" 
+        description="Optimize your EV fleet with EnVERT's custom telematics and fleet management software. Features real-time GPS tracking, battery SoC monitoring, diagnostic alerts, and driver analytics."
+        keywords="EV software, fleet tracking, telematics software, vehicle diagnostics, GPS tracking, EnVERT"
+      />
       <PageHero
         badge="Software Solutions"
         title="Smart Software for"

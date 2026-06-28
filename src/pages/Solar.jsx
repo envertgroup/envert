@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const solarProducts = [
   { icon: Home, title: 'Residential Solar + EV', desc: 'Rooftop solar panels paired with home EV charger. Power your home and vehicle from the sun.', savings: 'Save ₹4,000/month avg.', color: '#f59e0b' },
@@ -49,7 +50,11 @@ function SolarCard({ item, index }) {
 export default function Solar() {
   return (
     <>
-      <title>Solar + EV Integration — EnVERT</title>
+      <SEO 
+        title="Solar + EV Integration — EnVERT" 
+        description="Pair solar panel systems with smart EV chargers. EnVERT provides complete residential solar setups and commercial solar canopies for off-grid and cost-effective EV charging."
+        keywords="solar EV charging, solar carport, rooftop solar EV, off grid charging, EnVERT"
+      />
       <PageHero
         badge="Solar Integration"
         title="Charge from"

@@ -3,6 +3,7 @@ import { Mail, Phone, MapPin, ArrowRight, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 // ─── Contact Info Cards ────────────────────────────────────────────────────────
 function ContactCard({ info, delay }) {
@@ -105,7 +106,11 @@ export default function Contact() {
 
   return (
     <>
-      <title>Contact Us — EnVERT</title>
+      <SEO 
+        title="Contact Us — EnVERT" 
+        description="Contact EnVERT Technologies for vehicle purchase inquiries, custom charging depot installations, battery pack contract manufacturing, solar integrations, and partnerships."
+        keywords="contact EnVERT, EV customer service, Kolkata EV manufacturer, EV partnerships, EnVERT phone"
+      />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section

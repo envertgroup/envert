@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const products = [
   { icon: Factory, title: 'Electric Scooters & Trikes', desc: 'OEM manufacturing of 2W and 3W electric vehicles. Custom branding, color, and spec available for B2B clients.', capacity: '10,000 units/year', color: '#22c55e' },
@@ -50,7 +51,11 @@ function ManufacturingProductCard({ p, index }) {
 export default function Manufacturing() {
   return (
     <>
-      <title>Manufacturing — EnVERT</title>
+      <SEO 
+        title="Manufacturing — EnVERT" 
+        description="EnVERT's state-of-the-art facility in India offers OEM manufacturing of electric scooters, trikes, custom EV charging units, battery packs, and smart motor controllers."
+        keywords="EV manufacturing India, OEM electric scooter, battery pack factory, motor controller manufacturing, EnVERT"
+      />
       <PageHero
         badge="Manufacturing"
         title="Made in India,"

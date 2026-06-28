@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const chargingTypes = [
   {
@@ -92,7 +93,11 @@ function ChargingCard({ item, delay }) {
 export default function Charging() {
   return (
     <>
-      <title>Charging Infrastructure — EnVERT</title>
+      <SEO 
+        title="Charging Infrastructure — EnVERT" 
+        description="EnVERT designs, supplies, and installs complete EV charging solutions in India. Including home chargers (3.3kW-7.4kW), commercial charging hubs, and DC fast chargers (60kW-150kW)."
+        keywords="EV charger, home EV charging, commercial EV charger, DC fast charging station, EnVERT"
+      />
       <PageHero
         badge="Charging Solutions"
         title="Power Every"

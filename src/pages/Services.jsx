@@ -6,6 +6,7 @@ import SectionTitle from '../components/SectionTitle';
 import { services, serviceCategories } from '../data/services';
 import { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const iconMap = { Wrench, AlertCircle, Home, Battery, Truck, BarChart3, Building2: Home, CreditCard: Battery, LineChart: BarChart3 };
 
@@ -64,7 +65,11 @@ export default function Services() {
 
   return (
     <>
-      <title>EV Services — EnVERT</title>
+      <SEO 
+        title="EV Services — EnVERT" 
+        description="Get professional EV after-sales support with EnVERT. Services include scheduled maintenance, battery diagnostics, 24/7 emergency assistance (coming soon), and charging setup."
+        keywords="EV repair, EV maintenance, electric vehicle service, charger installation, EnVERT"
+      />
       <PageHero
         badge="EV Services"
         title="Full-Spectrum EV"

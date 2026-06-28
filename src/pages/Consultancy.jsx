@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import PageHero from '../components/PageHero';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const services = [
   { icon: Leaf, title: 'Carbon Footprint Auditing', desc: 'Measure, report, and plan reduction of your organization\'s transport-related carbon emissions.', color: '#22c55e' },
@@ -46,7 +47,11 @@ function ConsultancyServiceCard({ s, index }) {
 export default function Consultancy() {
   return (
     <>
-      <title>EV Consultancy — EnVERT</title>
+      <SEO 
+        title="EV Consultancy — EnVERT" 
+        description="EnVERT offers expert EV consultancy services for businesses, governments, and organizations. From carbon audits and policy planning to feasibility reports and TCO modeling."
+        keywords="EV consultancy, carbon audit, EV policy analysis, feasibility study, EnVERT"
+      />
       <PageHero
         badge="Consultancy"
         title="Expert Guidance for Your"

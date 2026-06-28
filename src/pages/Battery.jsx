@@ -3,6 +3,7 @@ import { Battery as BatteryIcon, RefreshCw, Recycle, Shield, ArrowRight, Zap } f
 import { Link } from 'react-router-dom';
 import SectionTitle from '../components/SectionTitle';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const batteryServices = [
   { icon: BatteryIcon, title: 'Li-ion Battery Contract Manufacturing', desc: 'Custom assembly and high-capacity contract manufacturing for LFP and NMC battery packs. Scaled production built to automotive standards.', color: '#22c55e' },
@@ -56,7 +57,11 @@ export default function Battery() {
 
   return (
     <>
-      <title>WAGSOL Battery Business — EnVERT</title>
+      <SEO 
+        title="WAGSOL Battery Business — EnVERT" 
+        description="WAGSOL is EnVERT's custom battery technology brand. Providing LFP & NMC cell-level contract manufacturing, smart BMS integration, pack refurbishment, and second-life energy storage systems."
+        keywords="WAGSOL battery, EV battery pack, LFP battery manufacturing, BMS integration, battery refurbishment, EnVERT"
+      />
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section

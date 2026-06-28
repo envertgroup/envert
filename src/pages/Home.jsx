@@ -7,6 +7,7 @@ import ProductCard from '../components/ProductCard';
 import TestimonialCarousel from '../components/TestimonialCarousel';
 import { products } from '../data/products';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import SEO from '../components/SEO';
 
 const solutions = [
   { icon: Zap, title: 'Charging Infrastructure', desc: 'Home chargers to 150kW DC fast chargers and public charging networks.', href: '/charging', color: '#22c55e' },
@@ -66,7 +67,11 @@ export default function Home() {
 
   return (
     <>
-      <title>EnVERT — India's Premier EV Company</title>
+      <SEO 
+        title="EnVERT — India's Premier EV Company" 
+        description="EnVERT delivers complete electric vehicle (EV) solutions across India — including electric scooters, cargo trikes, public charging stations, solar integration, and fleet telematics."
+        keywords="EV company, electric vehicle, electric scooter, fleet electrification, EV charging, solar EV, EnVERT"
+      />
       <HeroSection />
 
       {/* Solutions */}

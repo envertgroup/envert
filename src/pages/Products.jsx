@@ -2,6 +2,7 @@
 import { useState, useMemo } from 'react';
 import { Search, SlidersHorizontal, X } from 'lucide-react';
 import PageHero from '../components/PageHero';
+import SEO from '../components/SEO';
 import ProductCard from '../components/ProductCard';
 import SectionTitle from '../components/SectionTitle';
 import { products, categories } from '../data/products';
@@ -20,7 +21,11 @@ export default function Products() {
 
   return (
     <>
-      <title>EV Products — EnVERT</title>
+      <SEO 
+        title="EV Products & Catalog — EnVERT" 
+        description="Browse EnVERT's collection of electric vehicles including electric bicycles, electric scooters, high-speed electric autos, and cargo trikes."
+        keywords="electric vehicles, electric scooters, electric auto, electric cycle, EV shop, EnVERT"
+      />
       <PageHero
         badge="Vehicle Catalog"
         title="Our Complete"
