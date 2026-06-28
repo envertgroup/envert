@@ -49,12 +49,12 @@ function SolarCard({ item, index }) {
 export default function Solar() {
   return (
     <>
-      <title>Solar + EV Integration — Envert</title>
+      <title>Solar + EV Integration — EnVERT</title>
       <PageHero
         badge="Solar Integration"
         title="Charge from"
         highlight="Sunlight"
-        subtitle="Envert integrates solar power with EV charging for homes, businesses, and fleets — delivering near-zero-cost mobility."
+        subtitle="EnVERT integrates solar power with EV charging for homes, businesses, and fleets — delivering near-zero-cost mobility."
         breadcrumbs={[{ label: 'Solar + EV Integration' }]}
       />
       <section className="py-24" style={{ background: 'var(--color-bg)' }}>

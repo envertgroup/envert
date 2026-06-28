@@ -42,7 +42,7 @@ export default function ContactForm() {
           Message Sent!
         </h3>
         <p className="mb-6" style={{ color: 'var(--color-text-secondary)' }}>
-          Our team will get back to you within 24 hours. Thank you for reaching out to Envert!
+          Our team will get back to you within 24 hours. Thank you for reaching out to EnVERT!
         </p>
         <button onClick={() => setSubmitted(false)} className="btn-secondary">
           Send Another
@@ -106,7 +106,7 @@ export default function ContactForm() {
             name="phone"
             value={form.phone}
             onChange={handleChange}
-            placeholder="+91 98765 43210"
+            placeholder="+91 70039 42199"
             style={inputStyle}
             onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
             onBlur={(e) => (e.target.style.borderColor = 'var(--color-border)')}

@@ -92,12 +92,12 @@ function ChargingCard({ item, delay }) {
 export default function Charging() {
   return (
     <>
-      <title>Charging Infrastructure — Envert</title>
+      <title>Charging Infrastructure — EnVERT</title>
       <PageHero
         badge="Charging Solutions"
         title="Power Every"
         highlight="Journey"
-        subtitle="From your driveway to highways — Envert designs, supplies, and installs complete EV charging infrastructure across India."
+        subtitle="From your driveway to highways — EnVERT designs, supplies, and installs complete EV charging infrastructure across India."
         breadcrumbs={[{ label: 'Charging & Infrastructure' }]}
       />
 
@@ -122,9 +122,9 @@ export default function Charging() {
         <div className="section-container text-center">
           <SectionTitle
             badge="Network"
-            title="540+ Charging"
+            title="Multiple Charging"
             highlight="Points"
-            subtitle="Our growing network spans 62+ cities across India with 24/7 monitoring and maintenance."
+            subtitle="Our growing network spans multiple cities across India with 24/7 monitoring and maintenance."
           />
           <div
             className="glass-card p-8 mt-12 flex items-center justify-center"

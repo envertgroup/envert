@@ -50,12 +50,12 @@ function ManufacturingProductCard({ p, index }) {
 export default function Manufacturing() {
   return (
     <>
-      <title>Manufacturing — Envert</title>
+      <title>Manufacturing — EnVERT</title>
       <PageHero
         badge="Manufacturing"
         title="Made in India,"
         highlight="For India"
-        subtitle="Envert's state-of-the-art manufacturing facility produces EVs, chargers, motor controllers, and battery packs for B2B and OEM clients."
+        subtitle="EnVERT's state-of-the-art manufacturing facility produces EVs, chargers, motor controllers, and battery packs for B2B and OEM clients."
         breadcrumbs={[{ label: 'Manufacturing' }]}
       />
       <section className="py-24" style={{ background: 'var(--color-bg)' }}>

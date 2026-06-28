@@ -41,7 +41,7 @@ export default function AdminLayout() {
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
             <img
               src="/assets/logo/logo.png"
-              alt="Envert"
+              alt="EnVERT"
               className="h-12 w-auto"
               onError={(e) => { e.target.style.display = 'none'; }}
             />

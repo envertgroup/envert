@@ -10,7 +10,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const solutions = [
   { icon: Zap, title: 'Charging Infrastructure', desc: 'Home chargers to 150kW DC fast chargers and public charging networks.', href: '/charging', color: '#22c55e' },
-  { icon: Battery, title: 'Battery Business', desc: 'Li-ion trading, BMS integration, refurbishment, and second-life solutions.', href: '/battery', color: '#06b6d4' },
+  { icon: Battery, title: 'Battery Business', desc: 'Contract manufacturing, BMS integration, refurbishment, and second-life solutions.', href: '/battery', color: '#06b6d4' },
   { icon: Sun, title: 'Solar + EV Integration', desc: 'Hybrid solar-EV systems, inverters, and net metering solutions.', href: '/solar', color: '#f59e0b' },
   { icon: Truck, title: 'Fleet Electrification', desc: 'End-to-end fleet transition — procurement, charging depots, and telematics.', href: '/fleet', color: '#8b5cf6' },
   { icon: Cpu, title: 'Software & Telematics', desc: 'Fleet tracking apps, remote diagnostics, and OTA update platforms.', href: '/software', color: '#ec4899' },
@@ -19,8 +19,8 @@ const solutions = [
   { icon: BarChart3, title: 'Consultancy', desc: 'Carbon footprint auditing, EV policy guidance, and infrastructure planning.', href: '/consultancy', color: '#06b6d4' },
 ];
 
-const whyEnvert = [
-  'Pan-India service network across 62+ cities',
+const whyEnVERT = [
+  'Pan-India service network across multiple cities',
   'ISO 9001:2015 certified manufacturing & processes',
   'FAME II & state subsidy assistance',
   'Dedicated fleet team and account managers',
@@ -66,7 +66,7 @@ export default function Home() {
 
   return (
     <>
-      <title>Envert — India's Premier EV Company</title>
+      <title>EnVERT — India's Premier EV Company</title>
       <HeroSection />
 
       {/* Solutions */}
@@ -76,7 +76,7 @@ export default function Home() {
             badge="Our Verticals"
             title="Complete EV"
             highlight="Ecosystem"
-            subtitle="From vehicles and charging to software and consultancy — Envert is your single partner for everything electric."
+            subtitle="From vehicles and charging to software and consultancy — EnVERT is your single partner for everything electric."
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
             {solutions.map((s, i) => (
@@ -109,21 +109,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Envert */}
+      {/* Why EnVERT */}
       <section className="py-24" style={{ background: 'var(--color-bg)' }}>
         <div className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left */}
             <div>
               <SectionTitle
-                badge="Why Envert"
+                badge="Why EnVERT"
                 title="India's Most Trusted"
                 highlight="EV Partner"
                 subtitle="We don't just sell vehicles — we build end-to-end electric mobility ecosystems for individuals, enterprises, and governments."
                 center={false}
               />
               <ul className="mt-8 space-y-3">
-                {whyEnvert.map((item, i) => (
+                {whyEnVERT.map((item, i) => (
                   <li
                     key={item}
                     className="flex items-start gap-3 text-sm"

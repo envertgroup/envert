@@ -46,12 +46,12 @@ function SoftwareFeatureCard({ feature, index }) {
 export default function Software() {
   return (
     <>
-      <title>Software & Technology — Envert</title>
+      <title>Software & Technology — EnVERT</title>
       <PageHero
         badge="Software Solutions"
         title="Smart Software for"
         highlight="Smart Fleets"
-        subtitle="Envert's telematics and fleet management platform gives you complete visibility and control over every vehicle in your fleet."
+        subtitle="EnVERT's telematics and fleet management platform gives you complete visibility and control over every vehicle in your fleet."
         breadcrumbs={[{ label: 'Software & Technology' }]}
       />
       <section className="py-24" style={{ background: 'var(--color-bg)' }}>

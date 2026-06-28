@@ -114,7 +114,7 @@ export default function HeroSection() {
               animation: 'slideUp 0.6s ease 0.35s both',
             }}
           >
-            Envert delivers complete EV solutions — from 2-wheelers to electric buses, 
+            EnVERT delivers complete EV solutions — from 2-wheelers to electric buses, 
             charging infrastructure, battery management, solar integration, and fleet electrification.
           </p>
 

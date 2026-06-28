@@ -15,6 +15,7 @@ import Services from './pages/Services';
 import Manufacturing from './pages/Manufacturing';
 import Consultancy from './pages/Consultancy';
 import Contact from './pages/Contact';
+import ProductDetails from './pages/ProductDetails';
 
 // Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
@@ -84,6 +85,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<ProductDetails />} />
             <Route path="/charging" element={<Charging />} />
             <Route path="/battery" element={<Battery />} />
             <Route path="/solar" element={<Solar />} />

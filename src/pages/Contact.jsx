@@ -1,120 +1,229 @@
 // src/pages/Contact.jsx
-import { Mail, Phone, MapPin, Clock, ArrowRight } from 'lucide-react';
-import PageHero from '../components/PageHero';
-import SectionTitle from '../components/SectionTitle';
+import { Mail, Phone, MapPin, ArrowRight, Zap } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const contactInfo = [
+// ─── Contact Info Cards ────────────────────────────────────────────────────────
+function ContactCard({ info, delay }) {
+  const [ref, isVisible] = useScrollAnimation(0.1);
+  const Icon = info.icon;
+  return (
+    <a
+      href={info.href}
+      target={info.target}
+      rel={info.rel}
+      ref={ref}
+      className="group relative overflow-hidden rounded-2xl p-7 block transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+      style={{
+        background: 'var(--gradient-card)',
+        border: '1px solid var(--color-border)',
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible ? 'translateY(0)' : 'translateY(28px)',
+        transition: `opacity 0.55s ease ${delay}ms, transform 0.55s ease ${delay}ms, border-color 0.3s, box-shadow 0.3s`,
+        boxShadow: '0 4px 24px rgba(0,0,0,0.2)',
+      }}
+      onMouseEnter={e => e.currentTarget.style.borderColor = `${info.color}50`}
+      onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--color-border)'}
+    >
+      {/* hover glow */}
+      <div
+        className="absolute inset-0 opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity duration-500"
+        style={{ background: `radial-gradient(ellipse at 30% 30%, ${info.color}18 0%, transparent 70%)` }}
+      />
+      {/* top accent line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl"
+        style={{ background: `linear-gradient(90deg, ${info.color}, transparent)` }}
+      />
+
+      <div
+        className="w-13 h-13 rounded-xl flex items-center justify-center mb-5 relative z-10 transition-transform duration-300 group-hover:scale-110"
+        style={{
+          width: 52, height: 52,
+          background: `${info.color}18`,
+          border: `1px solid ${info.color}30`,
+        }}
+      >
+        <Icon size={22} style={{ color: info.color }} />
+      </div>
+
+      <h3
+        className="font-bold text-lg mb-3 relative z-10 flex items-center gap-1.5"
+        style={{ color: 'var(--color-text-primary)' }}
+      >
+        {info.title}
+      </h3>
+      <div className="space-y-1 relative z-10">
+        {info.lines.map((line) => (
+          <p
+            key={line}
+            className="text-sm leading-relaxed transition-colors duration-200 group-hover:text-white"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
+            {line}
+          </p>
+        ))}
+      </div>
+    </a>
+  );
+}
+
+const contactCards = [
   {
     icon: Phone,
     title: 'Call Us',
-    lines: ['+91 98765 43210', '+91 80000 00000 (24/7 Emergency)'],
+    lines: ['+91 70039 42199'],
     color: '#22c55e',
+    href: 'tel:+917003942199',
   },
   {
     icon: Mail,
     title: 'Email Us',
-    lines: ['hello@envert.in', 'fleet@envert.in'],
+    lines: ['envertev@gmail.com'],
     color: '#06b6d4',
+    href: 'mailto:envertev@gmail.com',
   },
   {
     icon: MapPin,
     title: 'Head Office',
-    lines: ['Plot 14, EV Nagar,', 'Electronic City, Bengaluru – 560100'],
+    lines: [
+      'Unit 1414B, 14th Floor,',
+      'Aurora Waterfront, GN Block GN 34/1,',
+      'Sector V, Saltlake, Kolkata – 700091',
+    ],
     color: '#f59e0b',
-  },
-  {
-    icon: Clock,
-    title: 'Working Hours',
-    lines: ['Mon – Sat: 9:00 AM – 6:00 PM', 'Emergency: 24/7'],
-    color: '#8b5cf6',
+    href: 'https://maps.google.com/?q=Aurora+Waterfront+GN+34/1+Sector+V+Salt+Lake+Kolkata+700091',
+    target: '_blank',
+    rel: 'noopener noreferrer',
   },
 ];
 
 export default function Contact() {
+  const [formRef, formVisible] = useScrollAnimation(0.05);
+  const [mapRef, mapVisible] = useScrollAnimation(0.05);
+
   return (
     <>
-      <title>Contact Us — Envert</title>
+      <title>Contact Us — EnVERT</title>
 
-      <PageHero
-        badge="Get in Touch"
-        title="Let's Build Your"
-        highlight="EV Future"
-        subtitle="Talk to our experts about vehicles, charging infrastructure, fleet electrification, or any EV solution. We respond within 24 hours."
-        breadcrumbs={[{ label: 'Contact' }]}
-      />
+      {/* ── HERO ─────────────────────────────────────────────────────────── */}
+      <section
+        className="relative pt-28 pb-20 overflow-hidden"
+        style={{ background: 'var(--gradient-hero)', minHeight: '52vh' }}
+      >
+        <div className="orb orb-cyan" style={{ width: 600, height: 600, top: -250, right: -100, opacity: 0.3 }} />
+        <div className="orb orb-green" style={{ width: 400, height: 400, bottom: -150, left: -80, opacity: 0.2 }} />
+        <div className="absolute inset-0 bg-grid opacity-20 pointer-events-none" />
 
-      {/* Contact Info Cards */}
-      <section className="py-16" style={{ background: 'var(--color-bg)' }}>
+        <div className="section-container relative z-10">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 mb-10 text-sm" style={{ color: 'var(--color-text-muted)' }}>
+            <Link
+              to="/"
+              style={{ color: 'var(--color-text-muted)', transition: 'color 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--color-primary)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--color-text-muted)'}
+            >
+              Home
+            </Link>
+            <span>/</span>
+            <span style={{ color: 'var(--color-primary)' }}>Contact</span>
+          </nav>
+
+          <div className="max-w-2xl">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="badge badge-primary">Get in Touch</span>
+            </div>
+            <h1
+              className="text-5xl md:text-6xl font-black leading-tight mb-6"
+              style={{ color: 'var(--color-text-primary)', letterSpacing: '-0.02em' }}
+            >
+              Let's Build Your{' '}
+              <span className="gradient-text">EV Future</span>
+            </h1>
+            <p className="text-lg leading-relaxed" style={{ color: 'var(--color-text-secondary)', maxWidth: '540px' }}>
+              Talk to our experts about vehicles, charging infrastructure, fleet electrification, or any EV solution. We respond within 24 hours.
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
+          style={{ background: 'linear-gradient(to bottom, transparent, var(--color-bg))' }}
+        />
+      </section>
+
+      {/* ── CONTACT CARDS ────────────────────────────────────────────────── */}
+      <section className="pt-10 pb-0" style={{ background: 'var(--color-bg)' }}>
         <div className="section-container">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {contactInfo.map((info, i) => {
-              const [ref, isVisible] = useScrollAnimation();
-              const Icon = info.icon;
-              return (
-                <div
-                  key={info.title}
-                  ref={ref}
-                  className="glass-card p-6"
-                  style={{
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? 'translateY(0)' : 'translateY(24px)',
-                    transition: `all 0.5s ease ${i * 80}ms`,
-                    borderTop: `3px solid ${info.color}`,
-                  }}
-                >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-                    style={{ background: `${info.color}15` }}
-                  >
-                    <Icon size={20} style={{ color: info.color }} />
-                  </div>
-                  <h3 className="font-bold mb-3" style={{ color: 'var(--color-text-primary)' }}>
-                    {info.title}
-                  </h3>
-                  {info.lines.map((line) => (
-                    <p key={line} className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-                      {line}
-                    </p>
-                  ))}
-                </div>
-              );
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {contactCards.map((card, i) => (
+              <ContactCard key={card.title} info={card} delay={i * 100} />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Form + Map */}
-      <section className="py-16" style={{ background: 'var(--color-bg-secondary)' }}>
+      {/* ── FORM + MAP ───────────────────────────────────────────────────── */}
+      <section className="py-20" style={{ background: 'var(--color-bg)' }}>
         <div className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            {/* Form */}
-            <div>
-              <SectionTitle
-                badge="Send a Message"
-                title="Tell Us About"
-                highlight="Your Needs"
-                subtitle="Fill in the form and our team will reach out within one business day."
-                center={false}
-              />
-              <div className="mt-8">
-                <ContactForm />
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-stretch">
+
+            {/* Form — 3/5 width */}
+            <div
+              ref={formRef}
+              className="lg:col-span-3"
+              style={{
+                opacity: formVisible ? 1 : 0,
+                transform: formVisible ? 'translateX(0)' : 'translateX(-30px)',
+                transition: 'opacity 0.65s ease, transform 0.65s ease',
+              }}
+            >
+              {/* Section label */}
+              <div className="flex items-center gap-3 mb-6">
+                <div
+                  className="w-8 h-8 rounded-lg flex items-center justify-center"
+                  style={{ background: 'rgba(34,197,94,0.15)', border: '1px solid rgba(34,197,94,0.25)' }}
+                >
+                  <Zap size={14} style={{ color: 'var(--color-primary)' }} />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
+                    Send Us a <span className="gradient-text">Message</span>
+                  </h2>
+                  <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                    Our team will get back to you within one business day.
+                  </p>
+                </div>
               </div>
+              <ContactForm />
             </div>
 
-            {/* Map + Office Info */}
-            <div className="space-y-6">
+            {/* Map — 2/5 width */}
+            <div
+              ref={mapRef}
+              className="lg:col-span-2 flex flex-col gap-5"
+              style={{
+                opacity: mapVisible ? 1 : 0,
+                transform: mapVisible ? 'translateX(0)' : 'translateX(30px)',
+                transition: 'opacity 0.65s ease 0.1s, transform 0.65s ease 0.1s',
+              }}
+            >
               {/* Map embed */}
               <div
-                className="rounded-2xl overflow-hidden"
-                style={{ border: '1px solid var(--color-border)', height: 320 }}
+                className="rounded-2xl overflow-hidden relative flex-1"
+                style={{
+                  border: '1px solid var(--color-border)',
+                  minHeight: '340px',
+                  boxShadow: '0 8px 40px rgba(0,0,0,0.3)',
+                }}
               >
                 <iframe
-                  title="Envert Head Office Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15556.327!2d77.6563!3d12.8448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6b7c0d0b0001%3A0xabcdef!2sElectronic%20City%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1690000000000"
-                  width="100%"
-                  height="100%"
+                  title="EnVERT Head Office Location"
+                  src="https://maps.google.com/maps?q=Aurora%20Waterfront%20GN%2034/1%20Sector%20V%20Salt%20Lake%20Kolkata%20700091&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  className="absolute inset-0 w-full h-full"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
@@ -122,37 +231,44 @@ export default function Contact() {
                 />
               </div>
 
-              {/* Regional offices */}
-              <div className="glass-card p-6">
-                <h3 className="font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
-                  Regional Offices
-                </h3>
-                <div className="space-y-4">
-                  {[
-                    { city: 'Mumbai', addr: 'Andheri East, Mumbai – 400069' },
-                    { city: 'Delhi NCR', addr: 'Sector 18, Noida – 201301' },
-                    { city: 'Hyderabad', addr: 'Hitech City, Hyderabad – 500081' },
-                    { city: 'Chennai', addr: 'OMR Road, Chennai – 600119' },
-                  ].map((office) => (
-                    <div
-                      key={office.city}
-                      className="flex items-start gap-3 py-3"
-                      style={{ borderBottom: '1px solid var(--color-border)' }}
+              {/* Office summary card */}
+              <div
+                className="rounded-2xl p-6"
+                style={{
+                  background: 'var(--gradient-card)',
+                  border: '1px solid var(--color-border)',
+                }}
+              >
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-10 h-10 rounded-xl flex-shrink-0 flex items-center justify-center"
+                    style={{ background: 'rgba(245,158,11,0.15)', border: '1px solid rgba(245,158,11,0.25)' }}
+                  >
+                    <MapPin size={18} style={{ color: '#f59e0b' }} />
+                  </div>
+                  <div>
+                    <p className="font-semibold mb-1" style={{ color: 'var(--color-text-primary)' }}>
+                      EnVERT Head Office
+                    </p>
+                    <p className="text-sm leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
+                      Unit 1414B, 14th Floor, Aurora Waterfront,<br />
+                      GN Block GN 34/1, Sector V, Saltlake,<br />
+                      Kolkata – 700091
+                    </p>
+                    <a
+                      href="https://maps.google.com/?q=Aurora+Waterfront+GN+34/1+Sector+V+Salt+Lake+Kolkata+700091"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-semibold mt-3"
+                      style={{ color: 'var(--color-primary)' }}
                     >
-                      <MapPin size={16} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--color-primary)' }} />
-                      <div>
-                        <p className="text-sm font-semibold" style={{ color: 'var(--color-text-primary)' }}>
-                          {office.city}
-                        </p>
-                        <p className="text-xs" style={{ color: 'var(--color-text-muted)' }}>
-                          {office.addr}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
+                      Open in Google Maps <ArrowRight size={12} />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>

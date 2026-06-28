@@ -64,12 +64,12 @@ export default function Services() {
 
   return (
     <>
-      <title>EV Services — Envert</title>
+      <title>EV Services — EnVERT</title>
       <PageHero
         badge="EV Services"
         title="Full-Spectrum EV"
         highlight="Support"
-        subtitle="Envert provides comprehensive after-sales and field services to keep your EVs running efficiently — 24/7, across India."
+        subtitle="EnVERT provides comprehensive after-sales and field services to keep your EVs running efficiently — 24/7, across India."
         breadcrumbs={[{ label: 'EV Services' }]}
       />
       <section className="py-24" style={{ background: 'var(--color-bg)' }}>
@@ -103,17 +103,24 @@ export default function Services() {
       {/* 24/7 Banner */}
       <section className="py-16" style={{ background: 'var(--color-bg-secondary)' }}>
         <div className="section-container text-center">
-          <div className="glass-card p-10 max-w-2xl mx-auto">
-            <Clock size={40} className="mx-auto mb-4" style={{ color: 'var(--color-primary)' }} />
+          <div className="glass-card p-10 max-w-2xl mx-auto relative overflow-hidden">
+            <div className="absolute top-4 right-4">
+              <span className="badge badge-orange">Temporarily Inactive</span>
+            </div>
+            <Clock size={40} className="mx-auto mb-4" style={{ color: 'var(--color-text-muted)', opacity: 0.6 }} />
             <h3 className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>
               24/7 Emergency Roadside Assistance
             </h3>
             <p className="mb-6" style={{ color: 'var(--color-text-secondary)' }}>
-              Stranded? Call our EV emergency helpline. We'll reach you within 60 minutes in 62+ cities.
+              Stranded? Call our EV emergency helpline. We'll reach you within 60 minutes in multiple cities.
             </p>
-            <a href="tel:+918000000000" className="btn-primary py-3.5 px-10 text-lg">
-              📞 +91 80000 00000
-            </a>
+            <button 
+              className="py-3.5 px-10 text-lg font-semibold rounded-lg cursor-not-allowed opacity-50 transition-all" 
+              style={{ background: 'var(--color-surface)', border: '1px solid var(--color-border)', color: 'var(--color-text-muted)' }}
+              disabled
+            >
+              Service Coming Soon
+            </button>
           </div>
         </div>
       </section>

@@ -42,12 +42,12 @@ function FleetStepCard({ step, index }) {
 export default function Fleet() {
   return (
     <>
-      <title>Fleet Electrification — Envert</title>
+      <title>Fleet Electrification — EnVERT</title>
       <PageHero
         badge="Fleet Electrification"
         title="Electrify Your"
         highlight="Entire Fleet"
-        subtitle="From TCO analysis to depot charging and driver training — Envert manages your complete fleet electrification journey."
+        subtitle="From TCO analysis to depot charging and driver training — EnVERT manages your complete fleet electrification journey."
         breadcrumbs={[{ label: 'Fleet Electrification' }]}
       />
       <section className="py-24" style={{ background: 'var(--color-bg)' }}>
@@ -56,7 +56,7 @@ export default function Fleet() {
             badge="Our Process"
             title="How We Electrify"
             highlight="Your Fleet"
-            subtitle="A proven 6-step process used by 210+ fleet operators across India."
+            subtitle="A proven 6-step process used by multiple fleet operators across India."
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-14">
             {fleetSteps.map((step, i) => (

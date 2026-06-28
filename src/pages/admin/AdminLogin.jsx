@@ -33,7 +33,7 @@ export default function AdminLogin() {
           
           <h1 className="text-2xl font-bold mb-2" style={{ color: 'var(--color-text-primary)' }}>Admin Access</h1>
           <p className="text-sm mb-8" style={{ color: 'var(--color-text-secondary)' }}>
-            Enter the master password to access the Envert dashboard.
+            Enter the master password to access the EnVERT dashboard.
           </p>
 
           <form onSubmit={handleLogin} className="space-y-4">

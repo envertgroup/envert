@@ -35,7 +35,7 @@ export default function TestimonialCarousel() {
         <div className="text-center mb-16">
           <span className="badge badge-primary mb-4">Testimonials</span>
           <h2 className="text-3xl md:text-4xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
-            Trusted by <span className="gradient-text">3,800+ Clients</span>
+            Trusted by <span className="gradient-text">multiple clients over India</span>
           </h2>
         </div>
 

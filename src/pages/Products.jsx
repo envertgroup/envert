@@ -20,12 +20,12 @@ export default function Products() {
 
   return (
     <>
-      <title>EV Products — Envert</title>
+      <title>EV Products — EnVERT</title>
       <PageHero
         badge="Vehicle Catalog"
         title="Our Complete"
         highlight="EV Lineup"
-        subtitle="Browse 2-wheelers, 3-wheelers, cars, buses, bicycles, and EV accessories — all engineered for Indian roads."
+        subtitle="Browse 2-wheelers, 3-wheelers, bicycles, and EV accessories — all engineered for Indian roads."
         breadcrumbs={[{ label: 'Products' }]}
       />
 

@@ -46,12 +46,12 @@ function ConsultancyServiceCard({ s, index }) {
 export default function Consultancy() {
   return (
     <>
-      <title>EV Consultancy — Envert</title>
+      <title>EV Consultancy — EnVERT</title>
       <PageHero
         badge="Consultancy"
         title="Expert Guidance for Your"
         highlight="EV Journey"
-        subtitle="Envert's consultancy team helps businesses, government bodies, and institutions plan, finance, and execute their EV transition."
+        subtitle="EnVERT's consultancy team helps businesses, government bodies, and institutions plan, finance, and execute their EV transition."
         breadcrumbs={[{ label: 'Consultancy' }]}
       />
       <section className="py-24" style={{ background: 'var(--color-bg)' }}>

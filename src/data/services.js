@@ -25,7 +25,7 @@ export const services = [
     id: 'svc3',
     title: 'Scheduled EV Servicing',
     category: 'Maintenance',
-    description: 'Preventive maintenance and health checks for all Envert EVs. Our diagnostic tools identify issues before they become problems.',
+    description: 'Preventive maintenance and health checks for all EnVERT EVs. Our diagnostic tools identify issues before they become problems.',
     icon: 'Wrench',
     features: ['Battery health diagnostic', 'Motor & controller check', 'Software updates', 'Brake & tyre inspection'],
     image: 'https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&h=400&fit=crop',

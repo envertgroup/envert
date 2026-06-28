@@ -3,7 +3,7 @@ export const products = [
   // 2-Wheelers
   {
     id: 'p1',
-    name: 'Envert Blaze S1',
+    name: 'EnVERT Blaze S1',
     category: '2-Wheeler',
     subcategory: 'Electric Scooter',
     price: 89900,
@@ -21,7 +21,7 @@ export const products = [
   },
   {
     id: 'p2',
-    name: 'Envert Swift Pro',
+    name: 'EnVERT Swift Pro',
     category: '2-Wheeler',
     subcategory: 'Electric Scooter',
     price: 74900,
@@ -39,7 +39,7 @@ export const products = [
   },
   {
     id: 'p3',
-    name: 'Envert Apex Bike',
+    name: 'EnVERT Apex Bike',
     category: '2-Wheeler',
     subcategory: 'Electric Motorcycle',
     price: 149900,
@@ -59,7 +59,7 @@ export const products = [
   // 3-Wheelers
   {
     id: 'p4',
-    name: 'Envert Cargo Trike',
+    name: 'EnVERT Cargo Trike',
     category: '3-Wheeler',
     subcategory: 'Electric Cargo Vehicle',
     price: 210000,
@@ -77,7 +77,7 @@ export const products = [
   },
   {
     id: 'p5',
-    name: 'Envert Auto Plus',
+    name: 'EnVERT Auto Plus',
     category: '3-Wheeler',
     subcategory: 'Electric Auto-Rickshaw',
     price: 175000,
@@ -94,83 +94,10 @@ export const products = [
     colors: ['Classic Yellow', 'Black & Green'],
   },
 
-  // Cars
-  {
-    id: 'p6',
-    name: 'Envert Aura Sedan',
-    category: 'Car',
-    subcategory: 'Electric Sedan',
-    price: 1850000,
-    description: 'A premium electric sedan combining luxury and performance. Equipped with Level 2 ADAS, panoramic sunroof, and OTA updates.',
-    range: '550 km',
-    power: '180 kW',
-    battery: '82 kWh',
-    chargingTime: '45 min (DC Fast)',
-    topSpeed: '220 km/h',
-    acceleration: '5.8s (0-100)',
-    featured: true,
-    inStock: true,
-    image: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?w=600&h=400&fit=crop',
-    colors: ['Nebula Silver', 'Obsidian Black', 'Alpine White'],
-  },
-  {
-    id: 'p7',
-    name: 'Envert Bolt Hatchback',
-    category: 'Car',
-    subcategory: 'Electric Hatchback',
-    price: 985000,
-    description: 'Compact, affordable electric hatchback perfect for family use. Smart infotainment and connected car features built-in.',
-    range: '380 km',
-    power: '88 kW',
-    battery: '42 kWh',
-    chargingTime: '1 hr (AC)',
-    topSpeed: '170 km/h',
-    featured: false,
-    inStock: true,
-    image: 'https://images.unsplash.com/photo-1593941707882-a5bba14938c7?w=600&h=400&fit=crop',
-    colors: ['Sky Blue', 'Coral Red', 'Pristine White'],
-  },
-
-  // Buses
-  {
-    id: 'p8',
-    name: 'Envert CityBus 40',
-    category: 'Bus',
-    subcategory: 'Electric City Bus',
-    price: 12500000,
-    description: 'A 40-seater electric city bus built for public transport operators. Low-floor design, air suspension, and 500km single-charge range.',
-    range: '500 km',
-    power: '250 kW',
-    battery: '374 kWh',
-    chargingTime: '2 hrs (DC)',
-    capacity: '40 seats + 20 standing',
-    featured: false,
-    inStock: true,
-    image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=600&h=400&fit=crop',
-    colors: ['City White', 'Government Blue'],
-  },
-  {
-    id: 'p9',
-    name: 'Envert Staff Bus 20',
-    category: 'Bus',
-    subcategory: 'Electric Staff Bus',
-    price: 5800000,
-    description: 'Mid-size 20-seater electric bus ideal for corporate and school transport. Advanced safety systems and GPS fleet tracking.',
-    range: '300 km',
-    power: '150 kW',
-    battery: '180 kWh',
-    chargingTime: '90 min (DC)',
-    capacity: '20 seats',
-    featured: false,
-    inStock: false,
-    image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?w=600&h=400&fit=crop',
-    colors: ['Pearl White', 'Custom Livery'],
-  },
-
   // Bicycles
   {
     id: 'p10',
-    name: 'Envert Zephyr eBike',
+    name: 'EnVERT Zephyr eBike',
     category: 'Bicycle',
     subcategory: 'Electric Mountain Bike',
     price: 42500,
@@ -188,7 +115,7 @@ export const products = [
   },
   {
     id: 'p11',
-    name: 'Envert City Cruiser',
+    name: 'EnVERT City Cruiser',
     category: 'Bicycle',
     subcategory: 'Electric City Bike',
     price: 28900,
@@ -208,12 +135,12 @@ export const products = [
   // Accessories
   {
     id: 'p12',
-    name: 'Envert Home Charger 3.3kW',
+    name: 'EnVERT Home Charger 3.3kW',
     category: 'Accessory',
     subcategory: 'Home Charging Station',
     price: 12500,
-    description: 'Wall-mounted home charging unit compatible with all Envert 2W and 3W vehicles. Smart timer, app control, and energy monitoring.',
-    compatibility: 'All Envert 2W & 3W',
+    description: 'Wall-mounted home charging unit compatible with all EnVERT 2W and 3W vehicles. Smart timer, app control, and energy monitoring.',
+    compatibility: 'All EnVERT 2W & 3W',
     power: '3.3 kW',
     connector: 'Type 2',
     featured: false,
@@ -223,7 +150,7 @@ export const products = [
   },
   {
     id: 'p13',
-    name: 'Envert Smart Helmet Pro',
+    name: 'EnVERT Smart Helmet Pro',
     category: 'Accessory',
     subcategory: 'Safety Gear',
     price: 4999,
@@ -237,4 +164,4 @@ export const products = [
   },
 ];
 
-export const categories = ['All', '2-Wheeler', '3-Wheeler', 'Car', 'Bus', 'Bicycle', 'Accessory'];
+export const categories = ['All', '2-Wheeler', '3-Wheeler', 'Bicycle', 'Accessory'];
