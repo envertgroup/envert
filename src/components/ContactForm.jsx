@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Send, CheckCircle } from 'lucide-react';
+import HCaptcha from '@hcaptcha/react-hcaptcha';
 
 const interests = [
   '2-Wheeler', '3-Wheeler / Auto',
@@ -22,10 +23,18 @@ export default function ContactForm() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  
+  // hCaptcha Token & Ref
+  const [captchaToken, setCaptchaToken] = useState(null);
+  const captchaRef = useRef(null);
 
   const handleChange = (e) => {
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     setForm({ ...form, [e.target.name]: value });
+  };
+
+  const handleHCaptchaVerify = (token) => {
+    setCaptchaToken(token);
   };
 
   const handleSubmit = async (e) => {
@@ -57,9 +66,8 @@ export default function ContactForm() {
       return;
     }
 
-    // 3. hCaptcha Check
-    const hcaptchaResponse = window.hcaptcha ? window.hcaptcha.getResponse() : '';
-    if (!hcaptchaResponse) {
+    // 3. hCaptcha Verification Check
+    if (!captchaToken) {
       alert('Please check the hCaptcha box to verify you are not a bot.');
       return;
     }
@@ -82,7 +90,7 @@ export default function ContactForm() {
           company: form.company,
           interest: form.interest,
           message: form.message,
-          "h-captcha-response": hcaptchaResponse,
+          "h-captcha-response": captchaToken,
           from_name: 'EnVERT Website Contact Form',
           subject: `New Lead: ${form.name} (${form.interest || 'General Inquiry'})`,
         }),
@@ -100,13 +108,14 @@ export default function ContactForm() {
           name: '', email: '', phone: '', company: '', interest: '', message: '',
           botcheck: false
         });
-
-        // Reset hCaptcha Widget
-        if (window.hcaptcha) {
-          window.hcaptcha.reset();
-        }
+        setCaptchaToken(null);
       } else {
         alert(result.message || 'Failed to send message. Please try again.');
+        // Reset captcha on failure
+        if (captchaRef.current) {
+          captchaRef.current.resetCaptcha();
+        }
+        setCaptchaToken(null);
       }
     } catch (error) {
       console.error('Submission error:', error);
@@ -134,7 +143,13 @@ export default function ContactForm() {
         <p className="mb-6" style={{ color: 'var(--color-text-secondary)' }}>
           Our team will get back to you within 24 hours. Thank you for reaching out to EnVERT!
         </p>
-        <button onClick={() => setSubmitted(false)} className="btn-secondary">
+        <button 
+          onClick={() => {
+            setSubmitted(false);
+            setCaptchaToken(null);
+          }} 
+          className="btn-secondary"
+        >
           Send Another
         </button>
       </div>
@@ -266,11 +281,13 @@ export default function ContactForm() {
 
       {/* hCaptcha Checkbox Container */}
       <div className="flex justify-center p-3 rounded-xl border border-dashed" style={{ borderColor: 'var(--color-border)', background: 'rgba(255,255,255,0.01)' }}>
-        <div
-          className="h-captcha"
-          data-sitekey={import.meta.env.VITE_HCAPTCHA_SITE_KEY || "YOUR_HCAPTCHA_SITE_KEY_HERE"}
-          data-theme="dark"
-        ></div>
+        <HCaptcha
+          ref={captchaRef}
+          sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+          reCaptchaCompat={false}
+          theme="dark"
+          onVerify={handleHCaptchaVerify}
+        />
       </div>
 
       <button
