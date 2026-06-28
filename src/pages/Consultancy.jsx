@@ -9,7 +9,7 @@ import SEO from '../components/SEO';
 const services = [
   { icon: Leaf, title: 'Carbon Footprint Auditing', desc: 'Measure, report, and plan reduction of your organization\'s transport-related carbon emissions.', color: '#22c55e' },
   { icon: MapPin, title: 'Charging Network Planning', desc: 'Site selection, feasibility analysis, and ROI modeling for public or private charging networks.', color: '#06b6d4' },
-  { icon: FileText, title: 'Policy & Subsidy Guidance', desc: 'Navigate FAME II, state EV policies, PLI schemes, and tax incentives with our policy experts.', color: '#f59e0b' },
+  { icon: FileText, title: 'Policy & Subsidy Guidance', desc: 'Navigate central and state EV policies, PLI schemes, and tax incentives with our policy experts.', color: '#f59e0b' },
   { icon: BarChart3, title: 'Techno-Economic Feasibility', desc: 'Detailed feasibility reports for EV fleet transition, charging infrastructure, or solar-EV projects.', color: '#8b5cf6' },
   { icon: Users, title: 'Stakeholder Training', desc: 'Workshops and training programs for fleet managers, drivers, and technicians on EV operations.', color: '#ec4899' },
   { icon: TrendingDown, title: 'TCO & ROI Modeling', desc: 'Financial modeling comparing diesel/petrol TCO vs. electric alternatives with real-world data.', color: '#f97316' },

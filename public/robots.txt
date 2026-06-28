@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://envert.in/sitemap.xml
+Sitemap: https://www.envertelectric.com/sitemap.xml

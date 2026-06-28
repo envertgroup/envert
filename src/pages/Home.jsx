@@ -23,7 +23,7 @@ const solutions = [
 const whyEnVERT = [
   'Pan-India service network across multiple cities',
   'ISO 9001:2015 certified manufacturing & processes',
-  'FAME II & state subsidy assistance',
+  'State subsidy & policy assistance',
   'Dedicated fleet team and account managers',
   '5-year battery warranty on select models',
   'Zero-interest EMI financing options',
@@ -171,9 +171,9 @@ export default function Home() {
                   <div className="grid grid-cols-2 gap-4">
                     {[
                       { label: 'Years in EV Industry', value: '8+' },
-                      { label: 'Service Centres', value: '180+' },
-                      { label: 'Certified Technicians', value: '600+' },
-                      { label: 'States Covered', value: '22+' },
+                      { label: 'Service Centres', value: '..' },
+                      { label: 'Certified Technicians', value: '..' },
+                      { label: 'States Covered', value: '..' },
                     ].map(stat => (
                       <div
                         key={stat.label}
@@ -193,8 +193,8 @@ export default function Home() {
                       <Zap size={20} style={{ color: '#22c55e' }} />
                     </div>
                     <div>
-                      <div className="font-bold" style={{ color: 'var(--color-text-primary)' }}>FAME II Authorized Dealer</div>
-                      <div className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Central Government Subsidy Available</div>
+                      <div className="font-bold" style={{ color: 'var(--color-text-primary)' }}>Authorized EV Dealer</div>
+                      <div className="text-xs" style={{ color: 'var(--color-text-secondary)' }}>Government Subsidy Support Available</div>
                     </div>
                   </div>
                 </div>
