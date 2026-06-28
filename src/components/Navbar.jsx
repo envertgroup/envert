@@ -11,7 +11,7 @@ const navLinks = [
     href: '#',
     dropdown: [
       { label: 'Charging & Infrastructure', href: '/charging' },
-      { label: 'Battery Business', href: '/battery' },
+      { label: 'Battery Solutions', href: '/battery' },
       { label: 'Solar + EV Integration', href: '/solar' },
       { label: 'Fleet Electrification', href: '/fleet' },
     ],
@@ -100,27 +100,32 @@ export default function Navbar() {
                   </button>
                   {openDropdown === link.label && (
                     <div
-                      className="absolute top-full left-0 mt-1 w-56 rounded-xl py-2 z-50"
-                      style={{
-                        background: 'var(--color-surface)',
-                        border: '1px solid var(--color-border)',
-                        backdropFilter: 'blur(16px)',
-                        boxShadow: 'var(--shadow-glass)',
-                      }}
+                      className="absolute top-full left-0 pt-2 w-56 z-50 animate-fadeIn"
+                      style={{ transform: 'translateY(-2px)' }}
                     >
-                      {link.dropdown.map((item) => (
-                        <NavLink
-                          key={item.href}
-                          to={item.href}
-                          className="block px-4 py-2.5 text-sm font-medium transition-colors duration-150"
-                          style={({ isActive }) => ({
-                            color: isActive ? 'var(--color-primary)' : 'var(--color-text-secondary)',
-                            background: isActive ? 'var(--color-primary-glow)' : 'transparent',
-                          })}
-                        >
-                          {item.label}
-                        </NavLink>
-                      ))}
+                      <div
+                        className="rounded-xl py-2"
+                        style={{
+                          background: 'var(--color-surface)',
+                          border: '1px solid var(--color-border)',
+                          backdropFilter: 'blur(16px)',
+                          boxShadow: 'var(--shadow-glass)',
+                        }}
+                      >
+                        {link.dropdown.map((item) => (
+                          <NavLink
+                            key={item.href}
+                            to={item.href}
+                            className="block px-4 py-2.5 text-sm font-medium transition-colors duration-150"
+                            style={({ isActive }) => ({
+                              color: isActive ? 'var(--color-primary)' : 'var(--color-text-secondary)',
+                              background: isActive ? 'var(--color-primary-glow)' : 'transparent',
+                            })}
+                          >
+                            {item.label}
+                          </NavLink>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
@@ -156,11 +161,7 @@ export default function Navbar() {
               {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
             </button>
 
-            {/* CTA */}
-            <Link to="/contact" className="btn-primary hidden sm:inline-flex text-sm py-2 px-5">
-              <Zap size={15} />
-              Get Quote
-            </Link>
+
 
             {/* Mobile hamburger */}
             <button

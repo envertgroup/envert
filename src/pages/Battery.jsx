@@ -58,7 +58,7 @@ export default function Battery() {
   return (
     <>
       <SEO 
-        title="WAGSOL Battery Business — EnVERT" 
+        title="WAGSOL Battery Solutions — EnVERT" 
         description="WAGSOL is EnVERT's custom battery technology brand. Providing LFP & NMC cell-level contract manufacturing, smart BMS integration, pack refurbishment, and second-life energy storage systems."
         keywords="WAGSOL battery, EV battery pack, LFP battery manufacturing, BMS integration, battery refurbishment, EnVERT"
       />
@@ -93,7 +93,7 @@ export default function Battery() {
               Home
             </Link>
             <span>/</span>
-            <span style={{ color: 'var(--color-primary)' }}>Battery Business</span>
+            <span style={{ color: 'var(--color-primary)' }}>Battery Solutions</span>
           </nav>
 
           {/* Sub-brand block */}
@@ -121,10 +121,10 @@ export default function Battery() {
               </p>
 
               <div className="flex flex-wrap gap-3">
-                <Link to="/contact" className="btn-primary">
+                <Link to="/contact?interest=Battery Solutions" className="btn-primary">
                   Get Battery Quote <ArrowRight size={16} />
                 </Link>
-                <Link to="/contact" className="btn-secondary">
+                <Link to="/contact?interest=Battery Solutions" className="btn-secondary">
                   Talk to an Expert
                 </Link>
               </div>
@@ -276,7 +276,7 @@ export default function Battery() {
                 </div>
                 <span className="text-sm" style={{ color: 'var(--color-text-muted)' }}>brand</span>
               </div>
-              <Link to="/contact" className="btn-primary">
+              <Link to="/contact?interest=Battery Solutions" className="btn-primary">
                 Get Battery Quote <ArrowRight size={15} />
               </Link>
             </div>

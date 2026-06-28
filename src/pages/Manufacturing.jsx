@@ -72,7 +72,7 @@ export default function Manufacturing() {
             ))}
           </div>
           <div className="text-center mt-14">
-            <Link to="/contact" className="btn-primary py-3.5 px-10">
+            <Link to="/contact?interest=Consultancy" className="btn-primary py-3.5 px-10">
               Enquire for OEM Partnership <ArrowRight size={16} />
             </Link>
           </div>

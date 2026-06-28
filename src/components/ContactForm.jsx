@@ -1,16 +1,23 @@
-// src/components/ContactForm.jsx
 import { useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Send, CheckCircle } from 'lucide-react';
 
 const interests = [
-  '2-Wheeler', '3-Wheeler / Auto', 'Electric Car', 'Electric Bus',
+  '2-Wheeler', '3-Wheeler / Auto',
   'Charging Infrastructure', 'Battery Solutions', 'Fleet Electrification',
   'Solar Integration', 'Software / Telematics', 'Consultancy',
 ];
 
 export default function ContactForm() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const queryInterest = queryParams.get('interest');
+  
+  // Clean interest string if it has spaces or specific format
+  const initialInterest = interests.includes(queryInterest) ? queryInterest : '';
+
   const [form, setForm] = useState({
-    name: '', email: '', phone: '', company: '', interest: '', message: '',
+    name: '', email: '', phone: '', company: '', interest: initialInterest, message: '',
     botcheck: false
   });
   const [submitted, setSubmitted] = useState(false);

@@ -11,7 +11,7 @@ import SEO from '../components/SEO';
 
 const solutions = [
   { icon: Zap, title: 'Charging Infrastructure', desc: 'Home chargers to 150kW DC fast chargers and public charging networks.', href: '/charging', color: '#22c55e' },
-  { icon: Battery, title: 'Battery Business', desc: 'Contract manufacturing, BMS integration, refurbishment, and second-life solutions.', href: '/battery', color: '#06b6d4' },
+  { icon: Battery, title: 'Battery Solutions', desc: 'Contract manufacturing, BMS integration, refurbishment, and second-life solutions.', href: '/battery', color: '#06b6d4' },
   { icon: Sun, title: 'Solar + EV Integration', desc: 'Hybrid solar-EV systems, inverters, and net metering solutions.', href: '/solar', color: '#f59e0b' },
   { icon: Truck, title: 'Fleet Electrification', desc: 'End-to-end fleet transition — procurement, charging depots, and telematics.', href: '/fleet', color: '#8b5cf6' },
   { icon: Cpu, title: 'Software & Telematics', desc: 'Fleet tracking apps, remote diagnostics, and OTA update platforms.', href: '/software', color: '#ec4899' },

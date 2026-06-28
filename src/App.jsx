@@ -17,6 +17,8 @@ import Consultancy from './pages/Consultancy';
 import Contact from './pages/Contact';
 import ProductDetails from './pages/ProductDetails';
 
+import { Analytics } from '@vercel/analytics/react';
+
 // Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminLogin from './pages/admin/AdminLogin';
@@ -110,6 +112,7 @@ export default function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
+        <Analytics />
       </BrowserRouter>
     </ThemeProvider>
   );

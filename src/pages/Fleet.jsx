@@ -87,7 +87,7 @@ export default function Fleet() {
             ))}
           </div>
           <div className="mt-12">
-            <Link to="/contact" className="btn-primary py-3.5 px-10">
+            <Link to="/contact?interest=Fleet Electrification" className="btn-primary py-3.5 px-10">
               Start Fleet Transition <ArrowRight size={16} />
             </Link>
           </div>

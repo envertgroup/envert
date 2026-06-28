@@ -354,14 +354,22 @@ export default function ProductDetails() {
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <Link
-                  to={`/contact?subject=${encodeURIComponent('Enquiry for ' + product.name)}`}
+                  to={`/contact?subject=${encodeURIComponent('Enquiry for ' + product.name)}&interest=${encodeURIComponent(
+                    product.category === '3-Wheeler' ? '3-Wheeler / Auto' : 
+                    product.category === '2-Wheeler' || product.category === 'Bicycle' ? '2-Wheeler' : 
+                    'Charging Infrastructure'
+                  )}`}
                   className={`btn-primary flex-1 justify-center py-4 text-base ${!product.inStock ? 'opacity-40 pointer-events-none' : ''}`}
                 >
                   <Phone size={18} />
                   {product.category === 'Accessory' ? 'Order Now' : 'Book a Test Drive'}
                 </Link>
                 <Link
-                  to="/contact"
+                  to={`/contact?interest=${encodeURIComponent(
+                    product.category === '3-Wheeler' ? '3-Wheeler / Auto' : 
+                    product.category === '2-Wheeler' || product.category === 'Bicycle' ? '2-Wheeler' : 
+                    'Charging Infrastructure'
+                  )}`}
                   className="btn-secondary flex-1 justify-center py-4 text-base"
                 >
                   <MessageCircle size={18} />

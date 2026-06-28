@@ -83,7 +83,7 @@ function ChargingCard({ item, delay }) {
           </li>
         ))}
       </ul>
-      <Link to="/contact" className="btn-primary mt-6 text-sm py-2.5">
+      <Link to="/contact?interest=Charging Infrastructure" className="btn-primary mt-6 text-sm py-2.5">
         Get Quote <ArrowRight size={14} />
       </Link>
     </div>

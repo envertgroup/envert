@@ -72,7 +72,7 @@ export default function Software() {
             ))}
           </div>
           <div className="text-center mt-14">
-            <Link to="/contact" className="btn-primary py-3.5 px-10">
+            <Link to="/contact?interest=Software / Telematics" className="btn-primary py-3.5 px-10">
               Request a Demo <ArrowRight size={16} />
             </Link>
           </div>

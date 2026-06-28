@@ -16,7 +16,7 @@ const footerLinks = {
   ],
   Solutions: [
     { label: 'Charging Infrastructure', href: '/charging' },
-    { label: 'Battery Business', href: '/battery' },
+    { label: 'Battery Solutions', href: '/battery' },
     { label: 'Solar + EV Integration', href: '/solar' },
     { label: 'Fleet Electrification', href: '/fleet' },
     { label: 'Consultancy', href: '/consultancy' },

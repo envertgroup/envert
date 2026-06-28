@@ -76,7 +76,7 @@ export default function Solar() {
             ))}
           </div>
           <div className="text-center mt-14">
-            <Link to="/contact" className="btn-primary py-3.5 px-10">
+            <Link to="/contact?interest=Solar Integration" className="btn-primary py-3.5 px-10">
               Get Solar + EV Quote <ArrowRight size={16} />
             </Link>
           </div>
