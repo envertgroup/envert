@@ -11,19 +11,102 @@ const interests = [
 export default function ContactForm() {
   const [form, setForm] = useState({
     name: '', email: '', phone: '', company: '', interest: '', message: '',
+    botcheck: false
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) => {
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+    setForm({ ...form, [e.target.name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // 1. Honeypot check
+    if (form.botcheck) {
+      console.warn('Bot detected via honeypot.');
+      setSubmitted(true);
+      return;
+    }
+
+    // 2. Client-side Rate Limiting (Cooldown & Cap)
+    const now = Date.now();
+    const lastSubmit = localStorage.getItem('envert_last_submit');
+    const submitHistory = JSON.parse(localStorage.getItem('envert_submit_history') || '[]');
+
+    // Check last submission (2-minute cooldown)
+    if (lastSubmit && now - parseInt(lastSubmit) < 120000) {
+      alert('Please wait at least 2 minutes before sending another message.');
+      return;
+    }
+
+    // Check hourly limit (max 3 submissions per hour)
+    const oneHourAgo = now - 3600000;
+    const recentSubmissions = submitHistory.filter(timestamp => timestamp > oneHourAgo);
+    if (recentSubmissions.length >= 3) {
+      alert('You have reached the maximum number of submissions for this hour. Please try again later.');
+      return;
+    }
+
+    // 3. hCaptcha Check
+    const hcaptchaResponse = window.hcaptcha ? window.hcaptcha.getResponse() : '';
+    if (!hcaptchaResponse) {
+      alert('Please check the hCaptcha box to verify you are not a bot.');
+      return;
+    }
+
     setLoading(true);
-    // Simulate submission (Firebase integration comes in Phase 2)
-    await new Promise(r => setTimeout(r, 1200));
-    setSubmitted(true);
-    setLoading(false);
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          company: form.company,
+          interest: form.interest,
+          message: form.message,
+          "h-captcha-response": hcaptchaResponse,
+          from_name: 'EnVERT Website Contact Form',
+          subject: `New Lead: ${form.name} (${form.interest || 'General Inquiry'})`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true);
+        // Save submission history for rate limiting
+        localStorage.setItem('envert_last_submit', now.toString());
+        recentSubmissions.push(now);
+        localStorage.setItem('envert_submit_history', JSON.stringify(recentSubmissions));
+
+        setForm({
+          name: '', email: '', phone: '', company: '', interest: '', message: '',
+          botcheck: false
+        });
+
+        // Reset hCaptcha Widget
+        if (window.hcaptcha) {
+          window.hcaptcha.reset();
+        }
+      } else {
+        alert(result.message || 'Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('An error occurred. Please check your internet connection and try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -65,6 +148,16 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="glass-card p-8 space-y-5">
+      {/* Honeypot field for bot check */}
+      <input
+        type="checkbox"
+        name="botcheck"
+        className="hidden"
+        style={{ display: 'none' }}
+        checked={form.botcheck}
+        onChange={handleChange}
+      />
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
         <div>
           <label className="block text-sm font-medium mb-1.5" style={{ color: 'var(--color-text-secondary)' }}>
@@ -162,6 +255,15 @@ export default function ContactForm() {
           onFocus={(e) => (e.target.style.borderColor = 'var(--color-primary)')}
           onBlur={(e) => (e.target.style.borderColor = 'var(--color-border)')}
         />
+      </div>
+
+      {/* hCaptcha Checkbox Container */}
+      <div className="flex justify-center p-3 rounded-xl border border-dashed" style={{ borderColor: 'var(--color-border)', background: 'rgba(255,255,255,0.01)' }}>
+        <div
+          className="h-captcha"
+          data-sitekey={import.meta.env.VITE_HCAPTCHA_SITE_KEY || "YOUR_HCAPTCHA_SITE_KEY_HERE"}
+          data-theme="dark"
+        ></div>
       </div>
 
       <button
