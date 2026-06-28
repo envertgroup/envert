@@ -89,7 +89,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-grid pointer-events-none" style={{ zIndex: 0 }} />
 
       {/* Main Content */}
-      <div className="section-container flex-1 flex flex-col justify-center pt-28 pb-16 relative z-10">
+      <div className="section-container flex-1 flex flex-col justify-start md:justify-center pt-28 pb-16 relative z-10">
         <div className="max-w-5xl">
           {/* Headline */}
           <h1
